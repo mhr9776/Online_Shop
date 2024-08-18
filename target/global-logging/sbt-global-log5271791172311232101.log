@@ -1,0 +1,88 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.10.1 (Private Build Java 1.8.0_422)
+[debug] Load.defaultLoad until apply took 96.5188ms
+[debug]           Load.loadUnit: plugins took 73.73516ms
+[debug]           Load.loadUnit: defsScala took 0.321276ms
+[debug] [Loading] Scanning directory /home/mhossein/IdeaProjects/Online Shop/project
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/mhossein/IdeaProjects/Online Shop/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 17.582129 ms
+[debug]               Load.resolveProject(online-shop-build) took 43.808883ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id online-shop-build, base: /home/mhossein/IdeaProjects/Online Shop/project, plugins: List(<none>))) took 86.035338ms
+[debug] [Loading] Done in /home/mhossein/IdeaProjects/Online Shop/project, returning: (online-shop-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 104.795782ms
+[debug]           Load.loadUnit: cleanEvalClasses took 0.272094ms
+[debug]         Load.loadUnit(file:/home/mhossein/IdeaProjects/Online%20Shop/project/, ...) took 184.172319ms
+[debug]       Load.apply: load took 327.053468ms
+[debug]       Load.apply: resolveProjects took 90.909575ms
+[debug]       Load.apply: finalTransforms took 60.417332ms
+[debug]       Load.apply: config.delegates took 6.598985ms
+[debug]       Load.apply: Def.make(settings)... took 363.254685ms
+[debug]       Load.apply: structureIndex took 104.067519ms
+[debug]       Load.apply: mkStreams took 1.476008ms
+[info] loading project definition from /home/mhossein/IdeaProjects/Online Shop/project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 1671.824507ms
+[debug]     Load.loadUnit: defsScala took 0.00258ms
+[debug] [Loading] Scanning directory /home/mhossein/IdeaProjects/Online Shop
+[debug]       Load.loadUnit: mkEval took 6.89752ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.708676 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 2.174322ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: /home/mhossein/IdeaProjects/Online Shop, plugins: List(<none>))) took 4.787314ms
+[debug] [Loading] Done in /home/mhossein/IdeaProjects/Online Shop, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 1906.291282ms
+[debug]     Load.loadUnit: cleanEvalClasses took 4.74236ms
+[debug]   Load.loadUnit(file:/home/mhossein/IdeaProjects/Online%20Shop/, ...) took 3584.034917ms
+[debug] Load.apply: load took 3604.813508ms
+[debug] Load.apply: resolveProjects took 0.10498ms
+[debug] Load.apply: finalTransforms took 7.263946ms
+[debug] Load.apply: config.delegates took 0.317597ms
+[debug] Load.apply: Def.make(settings)... took 84.46863ms
+[debug] Load.apply: structureIndex took 32.681462ms
+[debug] Load.apply: mkStreams took 0.002453ms
+[info] set current project to Online Shop (in build file:/home/mhossein/IdeaProjects/Online%20Shop/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(shell, None, None)
+[info] sbt server started at local:///home/mhossein/.sbt/1.0/server/6a745f444b16d5e49547/sock
+[debug] Writing bsp connection file
+[info] started sbt server
