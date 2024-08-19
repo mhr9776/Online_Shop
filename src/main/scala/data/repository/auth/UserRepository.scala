@@ -17,7 +17,7 @@ class UserRepository extends UserCallback with DatabaseModule {
     Future {
       NamedDB(onlineShop) localTx { implicit session =>
         sql"""
-        INSERT INTO user(username,password,name,email,role)
+        INSERT INTO "user"(username,password,name,email,role)
         VALUES ($username,$password,$name,$eMail,$role )
       """.updateAndReturnGeneratedKey()
       }
@@ -27,7 +27,7 @@ class UserRepository extends UserCallback with DatabaseModule {
       NamedDB(onlineShop) readOnly { implicit session =>
         sql"""
         SELECT *
-        FROM user
+        FROM "user"
         WHERE id = $id
       """.map(UserFactory.user).single()
       }
@@ -37,7 +37,7 @@ class UserRepository extends UserCallback with DatabaseModule {
     NamedDB(onlineShop) readOnly { implicit session =>
       sql"""
         SELECT *
-        FROM user
+        FROM "user"
         WHERE username = $username
       """.map(UserFactory.user).single()
     }
@@ -47,7 +47,7 @@ class UserRepository extends UserCallback with DatabaseModule {
   override def remove(id: Long): Future[Unit] = Future {
     NamedDB(onlineShop) localTx { implicit session =>
       sql"""
-            Delete from user
+            Delete from "user"
             where id = $id
             """.update()
     }

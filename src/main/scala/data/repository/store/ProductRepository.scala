@@ -21,48 +21,53 @@ class ProductRepository extends ProductCallback with DatabaseModule {
   }
 
 
-  override def add(productId: Long,
-                   name: String,
+  override def add(name: String,
                    details: String,
                    price: BigDecimal,
                    inventory: Int): Future[Long] = Future {
     NamedDB(onlineShop) localTx { implicit session =>
       sql"""
-        INSERT INTO product(id, name,details,price,inventory)
-        VALUES ($productId,$name,$details,$price,$inventory )
+        INSERT INTO product(name,details,price,inventory)
+        VALUES ($name,$details,$price,$inventory )
       """.updateAndReturnGeneratedKey()
     }
   }
 
-  override def remove(id: Long): Future[Unit] = Future {
+  override def remove(name: String): Future[Unit] = Future {
     NamedDB(onlineShop) localTx { implicit session =>
       sql"""
-            Delete from product
-            where id = $id
+            DELETE FROM product
+            WHERE name = $name
             """.update
     }
   }
 
-  override def update(
-                       id :Long,
-                       name : Option[String],
+  override def update(name : String,
+                      updateName : Option[String],
                       inventory : Option[Int],
                       detail : Option[String],
                       price : Option[BigDecimal]): Future[Unit] = Future {
     NamedDB(onlineShop) localTx { implicit session =>
       sql"""
         UPDATE product
+        WHERE name = $name
         SET
-          name =$name,
+          name =$updateName,
           inventory = $inventory,
           details = $detail,
           price = $price
-        WHERE id = $id
       """.update()
     }
   }
 
   override def getAll: Future[Option[Product]] = ???
+
+  override def getByName(name: String): Future[Option[Product]] = ???
+
+  override def removeByName(productName: String): Future[Option[Unit]] = ???
+
+
+
 }
 
 

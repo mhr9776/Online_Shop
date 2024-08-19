@@ -11,7 +11,7 @@ case class User(
                  name: String,
                  eMail: String,
                  role: User.Role,
-                 signUpAt: ZonedDateTime
+                 /*signUpAt: ZonedDateTime*/
                ) {
 
   def setEMail(eMail: String): User = {

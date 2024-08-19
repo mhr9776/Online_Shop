@@ -6,6 +6,5 @@ case class UserDTO(
                     password: String,
                     name: String,
                     eMail: String,
-                    role: String,
-                    signUpAt: ZonedDateTimeDTO
+                    role: String
                   )

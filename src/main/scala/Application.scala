@@ -7,12 +7,15 @@ import com.twitter.finatra.http.routing.HttpRouter
 import module.{CallbackModule, ServiceModule}
 import entry.rest.finatra.controller.{AuthenticationController, unsafe}
 import entry.rest.finatra.filters.AuthorizationFilter
+import entry.rest.finatra.util.CustomScalaObjectMapperModule
 
 object Application extends HttpServer {
 
-  override protected def defaultHttpPort: String = s":${ "8080"}"
+  override def jacksonModule: Module = CustomScalaObjectMapperModule
 
-  override protected def modules: Seq[Module] = Seq(CallbackModule, ServiceModule)
+  override protected def defaultHttpPort: String = ":8080"
+
+  override val modules: Seq[Module] = Seq(CallbackModule, ServiceModule)
 
   override protected def configureHttp(router: HttpRouter): Unit = {
     // Filters
@@ -25,7 +28,7 @@ object Application extends HttpServer {
     router.add[unsafe.AuthenticationController]
     // // Authorized Access
     router.add[AuthorizationFilter, AuthenticationController]
-    router.add[AuthorizationFilter, BlogController]
+    //    router.add[AuthorizationFilter, BlogController]
   }
 
 }

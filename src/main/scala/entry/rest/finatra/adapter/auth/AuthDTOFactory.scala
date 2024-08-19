@@ -9,6 +9,6 @@ object AuthDTOFactory {
     SessionDTO(o.key, o.userID, o.username)
 
   def user: User => UserDTO = o =>
-    UserDTO(o.id, o.username, o.password, o.name, o.eMail, o.role, CommonDTOFactory zonedDateTime o.signUpAt)
+    UserDTO(o.id, o.username, o.password, o.name, o.eMail, o.role /*CommonDTOFactory zonedDateTime o.signUpAt*/)
 
 }

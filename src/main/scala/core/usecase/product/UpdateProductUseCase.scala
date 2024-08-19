@@ -11,16 +11,16 @@ class UpdateProductUseCase @Inject()(productCallback: ProductCallback, permissio
 
   override def call(body: UpdateProductService.Body)(implicit ec: ExecutionContext): Future[Unit] = for {
     // Step 1: Check if the user is logged in and has a valid session
-    sessionOption <- sessionCallback get body.userId
-    _ = sessionOption getOrElse {
-      Future.failed(new Exception("Invalid session key"))
-    }
+//    sessionOption <- sessionCallback get body.userId
+//    _ = sessionOption getOrElse {
+//      Future.failed(new Exception("Invalid session key"))
+//    }
 
-    // Step 2: Check if the user has the permission to add a product
-    permissionOption <- permissionCallback get(body.userId, Permission.Update_Product)
-    _ = permissionOption getOrElse {
-      Future.failed(new Exception("User does not have permission to update"))
-    }
+//    // Step 2: Check if the user has the permission to add a product
+//    permissionOption <- permissionCallback get(body.userId, Permission.Update_Product)
+//    _ = permissionOption getOrElse {
+//      Future.failed(new Exception("User does not have permission to update"))
+//    }
 
     // Step 3: Check if the product name already exists in the database
     productOption <- productCallback getByName body.productName

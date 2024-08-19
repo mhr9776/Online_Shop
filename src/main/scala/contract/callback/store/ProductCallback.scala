@@ -14,12 +14,12 @@ abstract class ProductCallback {
   def getByName(name:String) : Future[Option[Product]]
 
 
-  def remove(id: Long): Future[Unit]
+  def remove(name: String): Future[Unit]
 
   def removeByName(productName : String) : Future[Option[Unit]]
 
-  def update(
-              name : String ,
+  def update( name : String ,
+              updateName: Option[String],
               inventory : Option[Int],
               detail : Option[String],
               price : Option[BigDecimal]): Future[Unit]
