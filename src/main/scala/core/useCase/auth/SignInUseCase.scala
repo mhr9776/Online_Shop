@@ -1,14 +1,13 @@
-package core.usecase.product
+package core.useCase.auth
 
-import com.google.inject.{Inject,Singleton}
+import com.google.inject.{Inject, Singleton}
 import contract.callback.auth.{SessionCallback, UserCallback}
 import contract.service.auth.SignInService
 import domain.auth.Session
 import util.AuthUtils
 
-import scala.concurrent.{ExecutionContext, Future}
-
 import scala.collection.concurrent.TrieMap
+import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
 class SignInUseCase @Inject()(sessionCallback: SessionCallback, userCallback: UserCallback) extends SignInService {

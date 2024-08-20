@@ -1,4 +1,4 @@
-package core.usecase.product
+package core.useCase.auth
 
 import com.google.inject.{Inject, Singleton}
 import contract.callback.auth.{UserCallback, UserPermissionCallback}

@@ -5,6 +5,7 @@ import data.adaptor.store.ProductFactory
 import module.DatabaseModule
 import module.DatabaseModule.onlineShop
 import scalikejdbc.{NamedDB, scalikejdbcSQLInterpolationImplicitDef}
+import domain.store.Product
 
 import scala.concurrent.Future
 
@@ -33,12 +34,12 @@ class ProductRepository extends ProductCallback with DatabaseModule {
     }
   }
 
-  override def remove(name: String): Future[Unit] = Future {
+  override def removeByName(name: String): Future[Unit] = Future {
     NamedDB(onlineShop) localTx { implicit session =>
       sql"""
             DELETE FROM product
             WHERE name = $name
-            """.update
+            """.update()
     }
   }
 
@@ -60,14 +61,24 @@ class ProductRepository extends ProductCallback with DatabaseModule {
     }
   }
 
-  override def getAll: Future[Option[Product]] = ???
+  override def getAll: Future[Option[Product]] = Future {
+    NamedDB(onlineShop) localTx { implicit session =>
+      sql"""
+        SELECT *
+        FROM product
+      """.map(ProductFactory.product).single()
+    }
+  }
 
-  override def getByName(name: String): Future[Option[Product]] = ???
-
-  override def removeByName(productName: String): Future[Option[Unit]] = ???
-
-
-
+  override def getByName(name: String): Future[Option[Product]] = Future {
+    NamedDB(onlineShop) readOnly { implicit session =>
+      sql"""
+        SELECT *
+        FROM product
+        WHERE name = $name
+      """.map(ProductFactory.product).single()
+    }
+  }
 }
 
 

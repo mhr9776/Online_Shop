@@ -13,7 +13,7 @@ import java.time.ZonedDateTime
 import scala.concurrent.Future
 
 class UserPermissionRepository extends UserPermissionCallback with DatabaseModule {
-  override def get(UserId: Long): Future[Option[UserPermission]] =Future {
+  override def get(UserId: Long): Future[Option[UserPermission]] = Future {
     NamedDB(onlineShop) readOnly { implicit session =>
       sql"""
         SELECT *
@@ -28,14 +28,14 @@ class UserPermissionRepository extends UserPermissionCallback with DatabaseModul
       sql"""
         SELECT *
         FROM user_permission
-        WHERE user_id,permission_id = $UserId,$permissionId
+        WHERE user_id =$UserId and permission_id = $permissionId
       """.map(UserPermissionFactory.userPermission).single()
     }
   }
 
   override def addBatch(userId: Long, permissionId: Vector[Long]): Future[Int] = {
-    if (permissionId.isEmpty) Future.successful(0) else Future{
-      val permissionIdQL =ql"$permissionId"
+    if (permissionId.isEmpty) Future.successful(0) else Future {
+      val permissionIdQL = ql"$permissionId"
       NamedDB(onlineShop) localTx { implicit session =>
         sql"""
           INSERT INTO user_permission(user_id,permission_id)

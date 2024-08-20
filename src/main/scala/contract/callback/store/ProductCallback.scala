@@ -1,7 +1,7 @@
 package contract.callback.store
 
 import scala.concurrent.Future
-
+import domain.store.Product
 abstract class ProductCallback {
 
   def add(name: String,
@@ -14,9 +14,8 @@ abstract class ProductCallback {
   def getByName(name:String) : Future[Option[Product]]
 
 
-  def remove(name: String): Future[Unit]
+  def removeByName(name: String): Future[Unit]
 
-  def removeByName(productName : String) : Future[Option[Unit]]
 
   def update( name : String ,
               updateName: Option[String],

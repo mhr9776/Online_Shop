@@ -5,7 +5,7 @@ import com.twitter.finatra.http.HttpServer
 import com.twitter.finatra.http.filters._
 import com.twitter.finatra.http.routing.HttpRouter
 import module.{CallbackModule, ServiceModule}
-import entry.rest.finatra.controller.{AuthenticationController, unsafe}
+import entry.rest.finatra.controller.{AuthenticationController, storeController, unsafe}
 import entry.rest.finatra.filters.AuthorizationFilter
 import entry.rest.finatra.util.CustomScalaObjectMapperModule
 
@@ -28,7 +28,7 @@ object Application extends HttpServer {
     router.add[unsafe.AuthenticationController]
     // // Authorized Access
     router.add[AuthorizationFilter, AuthenticationController]
-    //    router.add[AuthorizationFilter, BlogController]
+    router.add[AuthorizationFilter, storeController]
   }
 
 }
