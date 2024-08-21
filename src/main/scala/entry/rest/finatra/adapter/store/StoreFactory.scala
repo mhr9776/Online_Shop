@@ -1,8 +1,8 @@
 package entry.rest.finatra.adapter.store
 
-import contract.service.store.{AddProductService, RemoveProductService}
+import contract.service.store.{AddProductService, GetAllProductService, RemoveProductService}
 import entry.rest.finatra.RequestWrapper
-import entry.rest.finatra.adapter.store.api.{AddProductBodyDTO, RemoveProductBodyDTO}
+import entry.rest.finatra.adapter.store.api.{AddProductBodyDTO, GetAllProductBodyDTO, RemoveProductBodyDTO}
 
 object StoreFactory {
 
@@ -11,4 +11,7 @@ object StoreFactory {
 
   def removeProductRequest: (RequestWrapper,RemoveProductBodyDTO) => RemoveProductService.Body = (rw, dto) =>
     RemoveProductService.Body(rw.getUserID, dto.productName)
+
+  def getALlProductRequest:(RequestWrapper,GetAllProductBodyDTO) => GetAllProductService.Body = (rw, _) =>
+    GetAllProductService.Body(rw.getUserID)
 }

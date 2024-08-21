@@ -24,6 +24,6 @@ abstract class ProductCallback {
               price : Option[BigDecimal]): Future[Unit]
 
 
-  def getAll:Future[Option[Product]]
+  def getAll:Future[Vector[Product]]
 
 }

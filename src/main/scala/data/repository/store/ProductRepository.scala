@@ -61,12 +61,12 @@ class ProductRepository extends ProductCallback with DatabaseModule {
     }
   }
 
-  override def getAll: Future[Option[Product]] = Future {
+  override def getAll: Future[Vector[Product]] = Future {
     NamedDB(onlineShop) localTx { implicit session =>
       sql"""
         SELECT *
         FROM product
-      """.map(ProductFactory.product).single()
+      """.map(ProductFactory.product).list().toVector
     }
   }
 
