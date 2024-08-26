@@ -13,6 +13,11 @@ libraryDependencies ++= Seq(
   "org.scalikejdbc" %% "scalikejdbc" % "4.0.0",
   // Log
   "ch.qos.logback" % "logback-classic" % "1.2.11",
+  // JSON
+  "org.json4s" %% "json4s-jackson" % "3.6.12",
+  "org.json4s" %% "json4s-ext" % "3.6.12",
+  "org.json4s" %% "json4s-native" % "3.6.12",
+
   "com.google.inject" % "guice" % "5.1.0",
   "com.jakehschwartz" %% "finatra-swagger" % "22.7.0" excludeAll(
     ExclusionRule(organization = "javax.activation", name = "activation"),

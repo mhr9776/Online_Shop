@@ -18,10 +18,10 @@ abstract class ProductCallback {
 
 
   def update( name : String ,
-              updateName: Option[String],
-              inventory : Option[Int],
-              detail : Option[String],
-              price : Option[BigDecimal]): Future[Unit]
+              updateName: Option[String]= None,
+              inventory : Option[Int] = None,
+              detail : Option[String] = None,
+              price : Option[BigDecimal]=None): Future[Unit]
 
 
   def getAll:Future[Vector[Product]]

@@ -16,9 +16,9 @@ class GetAllProductUseCase @Inject()(productCallback: ProductCallback, userPermi
   override def call(body:GetAllProductService.Body)(implicit ec: ExecutionContext): Future[Vector[Product]] = for {
 
     // Step 1: Check if the user has the permission to add a product
-    permissionOption <- userPermissionCallback getByPermission (body.userId, UserPermission.Permission.Remove_Product)
+    permissionOption <- userPermissionCallback getByPermission (body.userId, UserPermission.Permission.Get_All_Product)
     _ = permissionOption getOrElse {
-      Future.failed(new Exception("User does not have permission to remove products"))
+      Future.failed(new Exception("User does not have permission to see products"))
     }
     // Step 3: Add the new product to the database
     product <- productCallback getAll

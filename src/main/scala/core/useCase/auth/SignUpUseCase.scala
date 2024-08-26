@@ -28,8 +28,10 @@ class SignUpUseCase @Inject()(userCallback: UserCallback, userPermissionCallback
       _ <- body.role match {
         case User.Role.SELLER => userPermissionCallback.addBatch(userID, Vector(UserPermission.Permission.Add_Product,
           UserPermission.Permission.Remove_Product, UserPermission.Permission.Update_Product,
-          UserPermission.Permission.Get_Product))
-        case User.Role.CUSTOMER => userPermissionCallback.addBatch(userID,Vector(UserPermission.Permission.Add_To_Order))
+          UserPermission.Permission.Get_Product,UserPermission.Permission.Get_All_Product))
+        case User.Role.CUSTOMER => userPermissionCallback.addBatch(userID,Vector(UserPermission.Permission.Add_To_Order,
+          UserPermission.Permission.Remove_From_Order,  UserPermission.Permission.Update_Order,
+          UserPermission.Permission.Get_Order, UserPermission.Permission.Get_All_Product))
       }
       createdUser <- userCallback.get(userID)
     }yield createdUser getOrElse (throw new Exception("not found"))

@@ -10,7 +10,8 @@ import domain.auth.UserPermission
 import scala.concurrent.{ExecutionContext, Future}
 
 @Singleton
-class RemoveProductUseCase @Inject()(productCallback: ProductCallback, userCallback: UserCallback, userPermissionCallback: UserPermissionCallback) extends RemoveProductService {
+class RemoveProductUseCase @Inject()(productCallback: ProductCallback, userCallback: UserCallback,
+                                     userPermissionCallback: UserPermissionCallback) extends RemoveProductService {
 
   override def call(body: RemoveProductService.Body)(implicit ec: ExecutionContext): Future[Unit] = for {
     //    // Step 1: Check if the user is logged in and has a valid session

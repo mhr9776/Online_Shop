@@ -1,8 +1,9 @@
 package entry.rest.finatra.adapter.store
 
-import contract.service.store.{AddProductService, GetAllProductService, RemoveProductService}
+import contract.callback.store.ProductCallback
+import contract.service.store.{AddProductService, AddToOrderService, GetAllProductService, GetOrderService, RemoveProductService}
 import entry.rest.finatra.RequestWrapper
-import entry.rest.finatra.adapter.store.api.{AddProductBodyDTO, GetAllProductBodyDTO, RemoveProductBodyDTO}
+import entry.rest.finatra.adapter.store.api.{AddProductBodyDTO, AddToOrderBodyDTO, GetAllProductBodyDTO, GetOrderBodyDTO, RemoveProductBodyDTO}
 
 object StoreFactory {
 
@@ -14,4 +15,10 @@ object StoreFactory {
 
   def getALlProductRequest:(RequestWrapper,GetAllProductBodyDTO) => GetAllProductService.Body = (rw, _) =>
     GetAllProductService.Body(rw.getUserID)
+
+  def addToOrderRequest: (RequestWrapper, AddToOrderBodyDTO) => AddToOrderService.Body = (rw, dto) =>
+    AddToOrderService.Body(rw.getUserID, dto.productName, dto.quantity)
+
+  def getOrderRequest: (RequestWrapper, GetOrderBodyDTO) => GetOrderService.Body = (rw, _) =>
+    GetOrderService.Body(rw.getUserID)
 }

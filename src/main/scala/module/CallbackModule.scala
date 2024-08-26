@@ -14,7 +14,7 @@ object CallbackModule extends TwitterModule {
 
     // Blog
     bind(classOf[callback.store.ProductCallback]) to classOf[repository.store.ProductRepository]
-//    bind(classOf[callback.store.CommentCallback]) to classOf[inmem.store.CommentRepository]
+    bind(classOf[callback.store.OrderCallback]) to classOf[repository.store.OrderRepository]
 //    bind(classOf[callback.store.PostCallback]) to classOf[inmem.store.PostRepository]
 
   }

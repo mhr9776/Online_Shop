@@ -5,7 +5,7 @@ import contract.service
 import contract.service.store.GetAllProductService
 import core.useCase.auth.{AuthorizeUseCase, SignInUseCase, SignOutUseCase, SignUpUseCase}
 import core.useCase.store
-import core.useCase.store.{AddProductUseCase, GetAllProductUseCase, RemoveProductUseCase}
+import core.useCase.store.{AddProductUseCase, AddToOrderUseCase, GetAllProductUseCase, GetOrderUseCase, RemoveProductUseCase}
 
 object ServiceModule extends TwitterModule {
 
@@ -20,8 +20,8 @@ object ServiceModule extends TwitterModule {
     // store
     bind(classOf[service.store.RemoveProductService]) to classOf[RemoveProductUseCase]
     bind(classOf[service.store.GetAllProductService]) to classOf[GetAllProductUseCase]
-//    bind(classOf[service.store.GetAllProductService]) to classOf[product.GetAllProductUseCase]
-//    bind(classOf[service.store.]) to classOf[application.blog.PublishPostUseCase]
+    bind(classOf[service.store.AddToOrderService]) to classOf[AddToOrderUseCase]
+//    bind(classOf[service.store.GetOrderService]) to classOf[GetOrderUseCase]
 //    bind(classOf[service.store.UpdatePostService]) to classOf[application.blog.UpdatePostUseCase]
 
   }

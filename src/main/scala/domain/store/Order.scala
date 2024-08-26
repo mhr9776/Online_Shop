@@ -1,12 +1,15 @@
 package domain.store
 
+import java.time.ZonedDateTime
 import java.util.Date
 
 case class Order(
-                  id: String,
+                  id: Long,
                   userId: Long,
-                  products: List[Product],
-                  totalAmount: Double,
-                  orderDate: Date
-                )
+                  products: Vector[ProductInOrder]
+                ){
+
+  lazy val totalAmount: Long = 1
+  lazy val orderDate: ZonedDateTime = ZonedDateTime.now()
+}
 
