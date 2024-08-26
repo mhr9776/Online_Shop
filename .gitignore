@@ -4,6 +4,8 @@
 # IDE
 .idea
 
+opt
+
 
 # Scala
 .bsp
